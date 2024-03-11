@@ -1,0 +1,27 @@
+{% extends 'admin/change_form.html' %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#id_productvariation_set-TOTAL_FORMS').change(function () {
+                var totalForms = $(this).val();
+                for (var i = 0; i < totalForms; i++) {
+                    var attributeSelect = $('#id_productvariation_set-' + i + '-attribute');
+                    var valueSelect = $('#id_productvariation_set-' + i + '-value');
+                    var selectedAttribute = attributeSelect.val();
+                    if (selectedAttribute) {
+                        $.ajax({
+                            url: '{% url 'get_attribute_options' %}',
+                            data: {'attribute_id': selectedAttribute},
+                            success: function (data) {
+                                valueSelect.html(data);
+                            }
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock %}

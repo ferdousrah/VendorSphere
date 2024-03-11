@@ -1,0 +1,89 @@
+            {% extends 'partials/base.html' %}
+            
+            {% load static %}
+
+            {% block content %}
+
+
+            <!-- Body Container -->
+            <div id="page-content"> 
+                <!--Page Header-->
+                <div class="page-header text-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-between align-items-center">
+                                <div class="page-title"><h1>Register</h1></div>
+                                <!--Breadcrumbs-->
+                                <div class="breadcrumbs"><a href="" title="Back to the home page">Home</a><span class="main-title"><i class="icon anm anm-angle-right-l"></i>Register</span></div>
+                                <!--End Breadcrumbs-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Page Header-->
+
+                
+                <!--Main Content-->
+                <div class="container">   
+                    <div class="login-register pt-2">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+                                {% if form.errors %}
+                                    <div class="alert alert-danger">
+                                            <strong>{{form.errors}}</strong>
+                                    </div>
+                                {% endif %}
+                                <div class="inner h-100">
+                                    <form action="" method="POST" class="customer-form">
+                                        {% csrf_token %}
+                                        	
+                                        <h2 class="text-center fs-4 mb-4">Register here if you are a new customer</h2>
+                                        <div class="form-row">
+                                            <div class="form-group col-12">
+                                                {{form.username}}
+                                            </div>
+
+                                            <div class="form-group col-12">
+                                                {{form.email}}
+                                            </div>
+
+                                            <div class="form-group col-12">
+                                                {{form.password1}}
+                                            </div>
+
+                                            <div class="form-group col-12">
+                                                {{form.password2}}
+                                            </div>
+                                            
+                                            <div class="form-group col-12 mb-0">
+                                                <input type="submit" class="btn btn-primary btn-lg w-100" value="Register" />
+                                            </div>
+                                        </div>
+
+                                        <!--
+
+                                        <div class="login-divide"><span class="login-divide-text">OR</span></div>
+
+                                        <p class="text-center fs-6 text-muted mb-3">Or Sign up with</p>
+                                        <div class="login-social d-flex-justify-center">
+                                            <a class="social-link facebook rounded-5 d-flex-justify-center" href="#"><i class="icon anm anm-facebook-f me-2"></i> Facebook</a>
+                                            <a class="social-link google rounded-5 d-flex-justify-center" href="#"><i class="icon anm anm-google-plus-g me-2"></i> Google</a>
+                                            <a class="social-link twitter rounded-5 d-flex-justify-center" href="#"><i class="icon anm anm-twitter me-2"></i> Twitter</a>
+                                        </div>
+
+                                        -->
+
+                                        <div class="login-signup-text mt-4 mb-2 fs-6 text-center text-muted">Already have an account? <a href="{% url 'userauths:sign-in' %}" class="btn-link">Login now</a></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End Main Content-->
+            </div>
+            <!-- End Body Container -->
+
+            {% endblock content %}
+
+

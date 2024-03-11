@@ -1,0 +1,849 @@
+            
+            {% extends 'partials/base.html' %}
+            
+            {% load static %}
+
+            {% block content %}
+
+            <!-- Body Container -->
+            <div id="page-content" class="mb-0">
+
+
+
+
+                <style>
+                    .image-title {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    color: #000;
+                }
+                
+                .image-title img {
+                    margin-bottom: 5px; /* Adjust as needed */
+                }
+                
+                .hover-shadow {
+                           border: 1px solid #e8e6eb;
+                            box-shadow: 0 4px 1px rgba(0, 0, 0, 0.1);
+                            transition: box-shadow 0.3s;
+                        }
+                
+                        .hover-shadow:hover {
+                            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+                        }
+                
+                        .custom-section {
+                            display: flex;
+                            flex-wrap: wrap;
+                            background-color: #fff4f14f;
+                            transition: background-color 0.3s;
+                            vertical-align: middle;
+                            border-radius: 5px;
+                                    
+                        }
+                
+                        .custom-section:hover {
+                            background-color: rgba(251, 214, 204, 0.31);
+                                    
+                        }
+                
+                        .custom-column {
+                            flex: 1;
+                            padding: 0px;
+                            text-align: center;
+                
+                        }
+                
+                        
+                </style>
+                
+                
+                                <!--Home Slideshow-->
+                                <section class="slideshow slideshow-wrapper">
+                                    <div class="container container-1330">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-8"> 
+                                                <div class="home-slideshow slideshow-medium slick-arrow-dots circle-arrow">
+
+                                                    {% for slide in slides %}
+                                                    <div class="slide">
+                                                        <div class="slideshow-wrap bg-size rounded-4">
+                                                            <img class="bg-img rounded-4 blur-up lazyload" data-src="{{ slide.image.url }}" src="{{ slide.image.url }}" alt="slideshow" title="" width="1148" height="710" />                                   
+                                                            <div class="slideshow-content slideshow-overlay middle-center">
+                                                                <div class="slideshow-content-in">
+                                                                    <div class="wrap-caption animation style3">      
+                                                                        <p class="ss-small-title"></p>
+                                                                        <h2 class="ss-mega-title"></h2>
+                                                                        <p class="ss-sub-title xs-hide"></p>
+                                                                        <div class="ss-btnWrap">
+                                                                           <!-- <a class="btn btn-primary rounded-pill" href="#">Order Now</a>
+                                                                            <a class="btn btn-primary rounded-pill" href="#">Explore Now</a> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                    
+                                                        </div>
+                                                    </div>
+
+                                                    {% endfor %}
+                                                    
+                                                    <!-- end of slide -->
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-4 mt-4 mt-lg-0">
+                                                <div class="collection-banner-grid">
+                                                    <div class="row sp-row">
+                                                        {% for banner in miniBannerOne %}
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-12 collection-banner-item">
+                                                            <div class="collection-item sp-col">
+                                                                <a href="#" class="rounded-4 zoom-scal clr-none">
+                                                                    <div class="img">
+                                                                        <img class="rounded-4 w-100 blur-up lazyload" data-src="{{ banner.image.url }}" src="{{ banner.image.url }}" alt="collection" title="" width="454" height="268" />
+                                                                    </div>
+                                                                    <div class="details middle-left">
+                                                                        <div class="inner">
+                                                                            <!--<span class="small-title mb-2 text-muted d-block alt-font"></span>
+                                                                            <h3 class="title"></h3>
+                                                                            <span class="btn btn-outline-secondary rounded-pill mt-3 btn-small">Shop Now</span>
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        {% endfor %}
+
+                                                        {% for banner in miniBannerTwo %}
+                                                        <div class="col-12 col-sm-12 col-md-6 col-lg-12 collection-banner-item">
+                                                            <div class="collection-item sp-col">
+                                                                <a href="#" class="rounded-4 zoom-scal clr-none">
+                                                                    <div class="img">
+                                                                        <img class="rounded-4 w-100 blur-up lazyload" data-src="{{ banner.image.url }}" src="{{ banner.image.url }}" alt="collection" title="" width="454" height="268" />
+                                                                    </div>
+                                                                    <div class="details middle-left">
+                                                                        <div class="inner">
+                                                                            <!--
+                                                                            <span class="small-title mb-2 alt-font text-muted d-block">Popular Foods</span>
+                                                                            <h3 class="title">Everyday Fresh &amp; <br/>Clean with Our <br/>Products</h3>
+                                                                            <span class="btn btn-outline-secondary rounded-pill mt-3 btn-small">Shop Now</span>
+                                                                            -->
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        {% endfor %}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--End Home Slideshow-->
+                
+                                <!-- Service section -->
+                                <section class="service-section section-md mt-m6 section-clr" style="padding-top: 0px;padding-bottom: 0px;">
+                                    <div class="container" style="padding-left: 25px;padding-right: 25px;">
+                                        
+                
+                                    <div class="row custom-section">
+                                        <div class="col-md-6 col-lg-4 custom-column">							
+                                            <div style="padding-top: 3px;padding-bottom: 8px;font-size: 16px;"><img src="{% static 'assets/images/icons/credit-card.png' %}" width="28" height="28" /><span style="padding-left: 10px;">Safe Payment</span></div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 custom-column">
+                                            <div style="padding-top: 3px;padding-bottom: 8px;font-size: 16px;"><img src="{% static 'assets/images/icons/fast-delivery.png' %}" width="28" height="28" /><span style="padding-left: 10px;">Nationwide Delivery</span></div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 custom-column">
+                                            <div style="padding-top: 3px;padding-bottom: 8px;font-size: 16px;"><img src="{% static 'assets/images/icons/shopping-tag.png' %}" width="28" height="28" /><span style="padding-left: 10px;">Best Price</span></div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 custom-column">
+                                            <div style="padding-top: 3px;padding-bottom: 8px;font-size: 16px;"><img src="{% static 'assets/images/icons/authenticity.png' %}" width="28" height="28" /><span style="padding-left: 10px;">100% Authentic</span></div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 custom-column">
+                                            <div style="padding-top: 3px;padding-bottom: 8px;font-size: 16px;"><img src="{% static 'assets/images/icons/verified-user.png' %}" width="28" height="28" /><span style="padding-left: 10px;">Verified Seller</span></div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-4 custom-column">
+                                            <div style="padding-top: 3px;padding-bottom: 8px;font-size: 16px;"><img src="{% static 'assets/images/icons/return.png' %}" width="28" height="28" /><span style="padding-left: 10px;">Easy Return</span></div>
+                                        </div>
+                
+                                    </div>
+                
+                                    </div>
+                                </section>
+                                <!-- End Service section -->
+                
+                
+                                <!--Marquee Text
+                                <section class="service-section section-md mt-m6 section-clr">
+                                    <div class="container">
+                                        <div class="section-header" style="text-align: left;">
+                                            <h2>Shop by Categories</h2>
+                                        </div>
+                            <div class="topbar-slider clearfix">
+                                <div class="container-fluid">
+                                    <div class="marquee-text" style="background-color: #fff;">
+                                        <div class="top-info-bar d-flex">
+                                            
+                                            <div class="flex-item center">
+                                                <a href="#">
+                                                    <span class="image-title"> <img src="{% static 'assets/category/1.webp' %}" height="200" width="200" />Jewelry & Watches</span>                                   
+                                                </a>
+                                            </div>
+                                            <div class="flex-item center">
+                                                <a href="#">
+                                                    <span class="image-title"> <img src="{% static 'assets/category/2.webp' %}" height="200" width="200" />Phones & Telecommunications</span>                                    
+                                                </a>
+                                            </div>
+                                            <div class="flex-item center">
+                                                <a href="#">
+                                                    <span class="image-title"> <img src="{% static 'assets/category/3.webp' %}" height="200" width="200" />Men's Clothing</span>                                    
+                                                </a>
+                                            </div>
+                                            <div class="flex-item center">
+                                                <a href="#">
+                                                    <span class="image-title"> <img src="{% static 'assets/category/4.webp' %}" height="200" width="200" />Hair Extensions & Wigs</span>                                    
+                                                </a>
+                                            </div>
+                                            <div class="flex-item center">
+                                                <a href="#">
+                                                    <span class="image-title"> <img src="{% static 'assets/category/5.webp' %}" height="200" width="200" />Toys & Games</span>                                    
+                                                </a>
+                                            </div>
+                                            <div class="flex-item center">
+                                                <a href="#">
+                                                    <span class="image-title"> <img src="{% static 'assets/category/6.webp' %}" height="200" width="200" />Furniture</span>                                    
+                                                </a>
+                                            </div>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                    </div>
+                                    </section>
+                            End Marquee Text-->
+                
+                
+                
+                            <!--Popular Categories-->
+                                <section class="section collection-slider mt-m6 section-clr pb-0">
+                                    <div class="container">
+                                        <div class="section-header" style="text-align: left;">
+                                            <h2>Shop by Categories</h2>
+                                        </div>
+                                        
+                
+                                        <div class="collection-slider-5items gp15 arwOut5 hov-arrow">
+
+                                            {% for category in categories %}
+                                            <div class="category-item zoomscal-hov">
+                                                <a href="{% url 'core:category-product-list' category.cid %}" class="category-link clr-none">
+                                                    <div class="zoom-scal zoom-scal-nopb rounded-3"><img class="blur-up lazyload" data-src="{{ category.image.url }}" src="{{ category.image.url }}" alt="{{ category.title }}" title="{{ category.title }}" width="365" height="365" /></div>
+                                                    <div class="details mt-3 text-center">
+                                                        <h4 class="category-title mb-0" style="font-size: 15px;font-weight: normal;">{{ category.title }}</h4>
+                                                        
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            {% endfor %}
+                                            
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--End Popular Categories-->
+                
+                
+                            
+                
+                            <div style="min-height: 60px;">&nbsp;</div>
+                
+                            <!--Collection banner-->
+                                <section class="section collection-banners two-one-bnr py-0">
+                                    <div class="container">                      
+                                        <div class="collection-banner-grid two-bnr">
+                                            <div class="row sp-row">
+                                                
+                                                {% for bannerOne in midBannerOne %}
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 collection-banner-item">
+                                                    <div class="collection-item sp-col">
+                                                        <a href="#" class="zoom-scal clr-none">
+                                                            <div class="img">
+                                                                <img class="blur-up lazyload" data-src="{{ bannerOne.image.url }}" src="{{ bannerOne.image.url }}" alt="collection" title="" width="647" height="439" />
+                                                            </div>
+                                                            <div class="details bottom-center">
+                                                                <div class="inner text-center">
+                                                                    <h3 class="title">{{ bannerOne.title }}</h3>
+                                                                    <span class="btn-brd fw-500 text-uppercase">Shop Now</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>                                
+                                                </div>
+
+                                                {% endfor %}
+
+                                                {% for bannerTwo in midBannerTwo %}
+
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 collection-banner-item">
+                                                    <div class="collection-item sp-col">
+                                                        <a href="#" class="zoom-scal clr-none">
+                                                            <div class="img">
+                                                                <img class="blur-up lazyload" data-src="{{ bannerTwo.image.url }}" src="{{ bannerTwo.image.url }}" alt="collection" title="" width="647" height="439" />
+                                                            </div>
+                                                            <div class="details bottom-center">
+                                                                <div class="inner text-center">
+                                                                    <h3 class="title">{{ bannerTwo.title }}</h3>
+                
+                                                                    <span class="btn-brd fw-500 text-uppercase">Shop Now</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                {% endfor %}
+
+                                                {% for bannerThree in midBannerThree %}
+                
+                                                <div class="col-12 col-sm-12 col-md-4 col-lg-4 collection-banner-item">
+                                                    <div class="collection-item sp-col">
+                                                        <a href="#" class="zoom-scal clr-none">
+                                                            <div class="img">
+                                                                <img class="blur-up lazyload" data-src="{{ bannerThree.image.url }}" src="{{ bannerThree.image.url }}" alt="collection" title="" width="647" height="439" />
+                                                            </div>
+                                                            <div class="details bottom-center">
+                                                                <div class="inner text-center">
+                                                                    <h3 class="title">{{ bannerThree.title }}</h3>
+                
+                                                                    <span class="btn-brd fw-500 text-uppercase">Shop Now</span>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                
+                                                {% endfor %}
+                
+                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--End Collection banner-->
+                
+                
+                
+                            
+                
+                                
+                
+                                <!--Collection banner
+                                <section class="section collection-banners four-one-bnr pb-0">
+                                    <div class="container container-1330">                      
+                                        <div class="section-header d-none">
+                                            <h2>Explore All Department</h2>
+                                            <p>There are many variations passages Lorem Ipsum available majority</p>
+                                        </div>
+                
+                                        <div class="collection-banner-grid onelarge-four-bnr">
+                                            <div class="row row-cols-lg-2 row-cols-md-2 row-cols-sm-1 row-cols-1">
+                                                <div class="collection-banner-item mb-3 mb-md-0">
+                                                    <div class="row sp-row row-cols-lg-1 row-cols-md-1 row-cols-sm-1 row-cols-1">
+                                                        <div class="collection-item sp-col large-bnr ctImg1">
+                                                            <a href="shop-left-sidebar.html" class="bg-square-hv rounded-4 clr-none">
+                                                                <div class="img">
+                                                                    <img class="rounded-4 w-100 blur-up lazyload" data-src="assets/images/collection/demo7-ct-img1.jpg" src="{% static 'assets/images/collection/demo7-ct-img1.jpg' %}" alt="collection" title="" width="646" height="643" />
+                                                                </div>
+                                                                <div class="details bottom-right text-left whiteText p-0">
+                                                                    <div class="inner">
+                                                                        <span class="small-title mb-1 d-block xs-hide alt-font">Tasty and fresh greens</span>
+                                                                        <h3 class="title text-capitalize text-white mb-2">Finest Quality</h3>
+                                                                        <span class="btn btn-primary btn-md rounded-pill mt-0 xs-hide">Order Now</span>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="collection-banner-item">
+                                                    <div class="row sp-row row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-2">
+                                                        <div class="collection-item sp-col sale-banner ctImg2">
+                                                            <a href="shop-left-sidebar.html" class="zoom-scal rounded-4 clr-none">
+                                                                <div class="img">
+                                                                    <img class="rounded-4 w-100 blur-up lazyload" data-src="assets/images/collection/demo7-ct-img2.jpg" src="{% static 'assets/images/collection/demo7-ct-img2.jpg' %}" alt="collection" title="" width="306" height="306" />
+                                                                </div>
+                                                                <div class="details middle-center text-center p-md-2 w-100">
+                                                                    <div class="inner">
+                                                                        <span class="small-title mb-2 mb-lg-3 d-block text-white alt-font fs-6 xs-hide">Don't Miss Our Deals</span>
+                                                                        <h3 class="title text-white">Grab The Best <br/>Offer of This Week</h3>
+                                                                        <span class="btn btn-primary btn-md rounded-pill mt-3 xs-hide">Shop Now</span>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>   
+                                                        <div class="collection-item sp-col ctImg3">
+                                                            <a href="shop-left-sidebar.html" class="zoom-scal rounded-4 clr-none">
+                                                                <div class="img">
+                                                                    <img class="rounded-4 w-100 blur-up lazyload" data-src="assets/images/collection/demo7-ct-img3.jpg" src="{% static 'assets/images/collection/demo7-ct-img3.jpg' %}" alt="collection" title="" width="306" height="306" />
+                                                                </div>
+                                                                <div class="details middle-center text-center bg-white rounded-4">
+                                                                    <div class="inner">
+                                                                        <h3 class="title">Organic <br/>Juice</h3>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="collection-item sp-col ctImg4">
+                                                            <a href="shop-left-sidebar.html" class="zoom-scal rounded-4 clr-none">
+                                                                <div class="img">
+                                                                    <img class="rounded-4 w-100 blur-up lazyload" data-src="assets/images/collection/demo7-ct-img4.jpg" src="{% static 'assets/images/collection/demo7-ct-img4.jpg' %}" alt="collection" title="" width="306" height="306" />
+                                                                </div>
+                                                                <div class="details middle-center text-center p-lg-0">
+                                                                    <div class="inner">
+                                                                        <h3 class="title">Fresh. <br/>Healthy. <br/>Organic.</h3>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="collection-item sp-col ctImg5">
+                                                            <a href="shop-left-sidebar.html" class="zoom-scal rounded-4 clr-none">
+                                                                <div class="img">
+                                                                    <img class="rounded-4 w-100 blur-up lazyload" data-src="assets/images/collection/demo7-ct-img5.jpg" src="{% static 'assets/images/collection/demo7-ct-img5.jpg' %}" alt="collection" title="" width="306" height="306" />
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                End Collection banner-->
+                
+                                <!--Products With Tabs-->
+                                <section class="section product-slider tab-slider-product">
+                                    <div class="container container-1330">
+                                        <div class="section-header" style="text-align: left;">
+                                            <h2>Trending Now</h2>
+                                        </div>
+                
+                                        <div class="tabs-listing">
+                                            
+                
+                                            <div class="tab-content" id="productTabsContent">
+                                                <div class="tab-pane show active" id="fruits" role="tabpanel" aria-labelledby="fruits-tab">
+                                                   
+                                                    <!--Product Grid-->
+                                                    <div class="grid-view-items">
+                                                        <div class="grid-products pro-hover3 row col-row row-cols-lg-4 row-cols-md-3 row-cols-sm-3 row-cols-2">                                           
+                                                            
+                                                            
+                                                            
+                                                            {% for product in products %}
+                                                            
+                                                            <div class="item col-item">
+                                                                <div class="product-box">
+                                                                    <!-- Start Product Image -->
+                                                                    <div class="product-image">
+                                                                        <!-- Start Product Image -->
+                                                                        <a href="{% url 'core:product-detail' product.pid %}" class="product-img rounded-4">
+                                                                            <!-- Image -->
+                                                                            <img class="primary rounded-4 blur-up lazyload" data-src="{{ product.image.url }}" src="{{ product.image.url }}" alt="Product" title="Product" width="400" height="400" />
+                                                                            <!-- End Image -->
+                                                                            <!-- Hover Image -->
+                                                                            <img class="hover rounded-4 blur-up lazyload" data-src="{{ product.image.url }}" src="{{ product.image.url }}" alt="Product" title="Product" width="400" height="400" />
+                                                                            <!-- End Hover Image -->
+                                                                        </a>
+                                                                        <!-- End Product Image -->    
+                                                                        <!-- Product label -->
+                                                                        {% if product.get_percentage > 0 %}
+                                                                        <div class="product-labels round-pill"><span class="lbl on-sale">-{{ product.get_percentage|floatformat:0 }}%</span></div>
+                                                                        {% endif %}
+                                                                        <!-- End Product label -->
+                                                                        <!--Countdown Timer-->
+                                                                        <!--<div class="saleTime horizonal dark" data-countdown="2025/01/01"></div>-->
+                
+                                                                        <!--Product Button-->
+                                                                        <div class="button-set-top style1">
+                                                                            <!--Quick View Button-->
+                                                                            <a href="#quickview-modal" class="btn-icon rounded-5 quickview quick-view-modal" data-bs-toggle="modal" data-bs-target="#quickview_modal">
+                                                                                <span class="icon-wrap d-flex-justify-center h-100 w-100" data-bs-toggle="tooltip" data-bs-placement="left" title="Quick View"><i class="icon anm anm-cart-l"></i><span class="text">Quick View</span></span>
+                                                                            </a>
+                                                                            <!--End Quick View Button-->
+                                                                            <!--Wishlist Button-->
+                                                                            <a href="wishlist-style2.html" class="btn-icon rounded-5 wishlist" data-bs-toggle="tooltip" data-bs-placement="left" title="Add To Wishlist"><i class="icon anm anm-heart-l"></i><span class="text">Add To Wishlist</span></a>
+                                                                            <!--End Wishlist Button-->
+                                                                            <!--Compare Button-->
+                                                                            <a href="compare-style2.html" class="btn-icon rounded-5 compare" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Compare"><i class="icon anm anm-random-r"></i><span class="text">Add to Compare</span></a>
+                                                                            <!--End Compare Button-->
+                                                                        </div>
+                                                                        <!--End Product Button-->
+                
+                                                                        <!--End Countdown Timer-->                                                       
+                                                                    </div>
+                                                                    <!-- End Product Image -->
+                                                                    <!-- Start Product Details -->
+                                                                    <div class="product-details text-left">
+                                                                        <!--Product Vendor-->
+                                                                        
+                                                                        <!--End Product Vendor-->
+                                                                        <div class="product-name" style="font-size: 16px;">
+                                                                            <a href="{% url 'core:product-detail' product.pid %}">{{ product.title }}</a>
+                                                                        </div>
+                                                                        <div class="product-name-price">
+                                                                            <!-- Product Name -->
+                                                                            <div class="product-name">
+                                                                                <span class="price">৳</span><span class="price">{{ product.price }}</span>
+                                                                                <span class="price old-price" style="opacity: .6;text-decoration: line-through;">৳{{ product.old_price }}</span>
+                                                                                <input type="hidden" class="current-product-price-{{ product.id }}" id="current-product-price" value="{{ product.price }}" />
+                                                                            </div>
+                                                                            <!-- End Product Name -->
+                                                                            <!-- Product Price 
+                                                                            <div class="product-price m-0">
+                                                                                <span class="price old-price">$99.00</span>
+                                                                            </div>
+                                                                            End Product Price -->
+                                                                        </div>
+                                                                        <!-- Product Review 
+                                                                        <div class="product-review">
+                                                                            <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i>
+                                                                            <span class="caption hidden ms-1">3 Reviews</span>
+                                                                        </div>
+                                                                        End Product Review -->
+                                                                        <!--Product Button-->
+                                                                        <div class="button-bottom-action style1">
+                                                                            <div class="button-left" style="width: 160px;">
+                                                                                <!--Cart Button-->
+                                                                                <a href="#quickview-modal" class="full-width-button addtocart quick-shop-modal" data-bs-toggle="modal" data-bs-target="#quickview_modal" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#fff'">
+                                                                                    Buy Now
+                                                                                </a>
+                                                                                <!--End Cart Button-->
+                                                                            </div>
+                                                                            <div class="button-right" style="width: 160px;">
+                                                                                <!--Cart Button-->
+                                                                                <input type="hidden" value="1" id="product-quantity" class="product-quantity-{{ product.id }}" />
+                                                                                <input type="hidden" value="{{ product.pid }}" class="product-pid-{{ product.id }}" />
+                                                                                <input type="hidden" class="product-image-{{ product.id }}" value="{{ product.image.url }}" />
+                                                                                <input type="hidden" value="{{ product.id }}" class="product-id-{{ product.id }}" />
+                                                                                <input type="hidden" value="{{ product.title }}" class="product-title-{{ product.id }}" />
+                                                                                <a class="full-width-button addtocart add-to-cart-btn" data-index="{{ product.id }}" id="add-to-cart-btn" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#fff'">
+                                                                                    Add to Cart
+                                                                                </a>
+                                                                                <!--End Cart Button-->
+                                                                            </div>
+                                                                            
+                                                                        </div><!--End Product Button-->
+                                                                        
+                                                                    </div><!-- End product details -->
+                                                                    
+                                                                </div> <!-- product box -->
+                
+                                                            </div> <!-- end item -->
+                
+                                                            {% endfor %}
+                                                            
+                                                            
+                                                            
+                                                    <!--End Product Grid-->
+                                                </div>
+                
+                                                
+                
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!--End Products With Tabs-->
+                
+                                <!--Popular Categories
+                                <section class="section collection-slider pop_cate">
+                                    <div class="container container-1330">
+                                        <div class="section-header">
+                                            <h2>Popular Categories</h2>
+                                        </div>
+                
+                                        <div class="collection-slider-5items gp15 arwOut5 hov-arrow circle-arrow">
+                                            <div class="category-item zoomscal-hov rounded-4">
+                                                <a href="shop-left-sidebar.html" class="category-link clr-none">
+                                                    <div class="zoom-scal zoom-scal-nopb rounded-circle"><img class="rounded-circle blur-up lazyload" data-src="assets/images/collection/demo7-collection1.png" src="{% static 'assets/images/collection/demo7-collection1.png' %}" alt="collection" title="" width="211" height="211" /></div>
+                                                    <div class="details mt-3 pt-1 text-center">
+                                                        <h4 class="category-title mb-0 body-font">Vegetables</h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="category-item zoomscal-hov rounded-4">
+                                                <a href="shop-left-sidebar.html" class="category-link clr-none">
+                                                    <div class="zoom-scal zoom-scal-nopb rounded-circle"><img class="rounded-circle blur-up lazyload" data-src="assets/images/collection/demo7-collection2.png" src="{% static 'assets/images/collection/demo7-collection2.png' %}" alt="collection" title="" width="211" height="211" /></div>
+                                                    <div class="details mt-3 pt-1 text-center">
+                                                        <h4 class="category-title mb-0 body-font">Fresh Fruits</h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="category-item zoomscal-hov rounded-4">
+                                                <a href="shop-left-sidebar.html" class="category-link clr-none">
+                                                    <div class="zoom-scal zoom-scal-nopb rounded-circle"><img class="rounded-circle blur-up lazyload" data-src="assets/images/collection/demo7-collection3.png" src="{% static 'assets/images/collection/demo7-collection3.png' %}" alt="collection" title="" width="211" height="211" /></div>
+                                                    <div class="details mt-3 pt-1 text-center">
+                                                        <h4 class="category-title mb-0 body-font">Beverages</h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="category-item zoomscal-hov rounded-4">
+                                                <a href="shop-left-sidebar.html" class="category-link clr-none">
+                                                    <div class="zoom-scal zoom-scal-nopb rounded-circle"><img class="rounded-circle blur-up lazyload" data-src="assets/images/collection/demo7-collection4.png" src="{% static 'assets/images/collection/demo7-collection4.png' %}" alt="collection" title="" width="211" height="211" /></div>
+                                                    <div class="details mt-3 pt-1 text-center">
+                                                        <h4 class="category-title mb-0 body-font">Spices</h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="category-item zoomscal-hov rounded-4">
+                                                <a href="shop-left-sidebar.html" class="category-link clr-none">
+                                                    <div class="zoom-scal zoom-scal-nopb rounded-circle"><img class="rounded-circle blur-up lazyload" data-src="assets/images/collection/demo7-collection5.png" src="{% static 'assets/images/collection/demo7-collection5.png' %}" alt="collection" title="" width="211" height="211" /></div>
+                                                    <div class="details mt-3 pt-1 text-center">
+                                                        <h4 class="category-title mb-0 body-font">Dryfruits</h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="category-item zoomscal-hov rounded-4">
+                                                <a href="shop-left-sidebar.html" class="category-link clr-none">
+                                                    <div class="zoom-scal zoom-scal-nopb rounded-circle"><img class="rounded-circle blur-up lazyload" data-src="assets/images/collection/demo7-collection6.png" src="{% static 'assets/images/collection/demo7-collection6.png' %}" alt="collection" title="" width="211" height="211" /></div>
+                                                    <div class="details mt-3 pt-1 text-center">
+                                                        <h4 class="category-title mb-0 body-font">Seeds</h4>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                
+                                End Popular Categories-->
+                
+                                <!--Parallax Banner
+                                <div class="section parallax-banner-style1 py-0">
+                                    <div class="hero hero-large hero-overlay bg-size">
+                                        <img class="bg-img" src="{% static 'assets/images/parallax/demo7-parallax-banner.jpg' %}" alt="parallax-banner" width="1920" height="645" />
+                                        <div class="hero-inner d-flex-justify-center">
+                                            <div class="container">
+                                                <div class="wrap-text mx-auto text-center">
+                                                    <h1 class="hero-title">Super Deals Of The Week <br><span class="text-primary">50% OFF</span></h1>
+                                                    <div class="hero-saleTime dark saleTime-circle d-flex-justify-center text-center" data-countdown="2024/10/01"></div>
+                                                    <p class="hero-details">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text</p>
+                                                    <a href="shop-left-sidebar.html" class="hero-btn btn btn-primary rounded-pill">Shop now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                End Parallax Banner-->
+                
+                                <!--List Products Section
+                                <div class="section mini-product">
+                                    <div class="container container-1330">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-4 col-md-4 col-lg-3">
+                                                <h4 class="column-ttl">Best Seller</h4>
+                                                <div class="mini-product-list">   
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product1.jpg" src="{% static 'assets/images/products/vegetables-small-product1.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Kashmiri Apple</a></div>
+                                                            <div class="product-price"><span class="old-price">$114.00</span><span class="price">$99.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
+                                                                <span class="caption hidden ms-2">3 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product2.jpg" src="{% static 'assets/images/products/vegetables-small-product2.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Organic Potatos</a></div>
+                                                            <div class="product-price"><span class="price">$128.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i>
+                                                                <span class="caption hidden ms-2">9 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product3.jpg" src="{% static 'assets/images/products/vegetables-small-product3.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Fresh Tomato</a></div>
+                                                            <div class="product-price"><span class="price">$99.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i>
+                                                                <span class="caption hidden ms-2">30 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-4 col-md-4 col-lg-3 mt-4 mt-sm-0">
+                                                <h4 class="column-ttl">New Products</h4>
+                                                <div class="mini-product-list">   
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product4.jpg" src="{% static 'assets/images/products/vegetables-small-product4.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Fresh Pomegranate</a></div>
+                                                            <div class="product-price"><span class="old-price">$114.00</span><span class="price">$99.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
+                                                                <span class="caption hidden ms-2">3 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product5.jpg" src="{% static 'assets/images/products/vegetables-small-product5.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Fresh Avocado</a></div>
+                                                            <div class="product-price"><span class="price">$128.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i>
+                                                                <span class="caption hidden ms-2">9 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product6.jpg" src="{% static 'assets/images/products/vegetables-small-product6.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Organic Grapes</a></div>
+                                                            <div class="product-price"><span class="price">$99.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i>
+                                                                <span class="caption hidden ms-2">30 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-4 col-md-4 col-lg-3 mt-4 mt-sm-0">
+                                                <h4 class="column-ttl">Top Rated</h4>
+                                                <div class="mini-product-list">   
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product6.jpg" src="{% static 'assets/images/products/vegetables-small-product6.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Green Grapes</a></div>
+                                                            <div class="product-price"><span class="old-price">$114.00</span><span class="price">$99.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
+                                                                <span class="caption hidden ms-2">3 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product7.jpg" src="{% static 'assets/images/products/vegetables-small-product7.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Organic Peanuts</a></div>
+                                                            <div class="product-price"><span class="price">$128.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i>
+                                                                <span class="caption hidden ms-2">9 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                        <div class="mini-image"><a class="item-link" href="product-layout1.html"><img class="primary rounded-5 blur-up lazyload" data-src="assets/images/products/vegetables-small-product8.jpg" src="{% static 'assets/images/products/vegetables-small-product8.jpg' %}" alt="image" title="product" width="85" height="85" /></a></div>
+                                                        <div class="ms-3 details text-break">
+                                                            <div class="product-name"><a class="item-title" href="product-layout1.html">Green Corn</a></div>
+                                                            <div class="product-price"><span class="price">$99.00</span></div>
+                                                            <div class="product-review d-flex align-items-center justify-content-start">
+                                                                <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i>
+                                                                <span class="caption hidden ms-2">30 reviews</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-3 mt-4 mt-sm-5 mt-lg-0">
+                                                <div class="ctg-bnr-wrap position-relative h-100">
+                                                    <a href="shop-left-sidebar.html" class="ctg-image ratio ratio-1x1 h-100 rounded-4 d-block">
+                                                        <img class="rounded-4 blur-up lazyload" data-src="assets/images/collection/demo7-side-bnr1.jpg" src="{% static 'assets/images/collection/demo7-side-bnr1.jpg' %}" alt="collection" width="307" height="419" />
+                                                    </a>
+                                                    <div class="ctg-content d-flex-center flex-nowrap flex-column h-100">  
+                                                        <span class="ctg-small-title mb-1 fs-6 d-block alt-font">100 % Natural Organic</span>
+                                                        <h2 class="ctg-title m-0">Healthy Dried</h2>  
+                                                        <p class="ctg-des">Start at Just $39</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                End List Products Section-->
+                
+                                <!--Brand Logo
+                                <section class="section logo-section section-clr">
+                                    <div class="container container-1330">
+                                        <div class="section-header d-none">
+                                            <h2>Popular Brands</h2>
+                                            <p>Brand the way to a brighter day</p>
+                                        </div>
+                
+                                        <div class="brands-list">
+                                            <div class="brands-row logo-bar logo-slider-6items gp10 arwOut5 hov-arrow circle-arrow">
+                                                <div class="brands-logo">
+                                                    <a href="shop-right-sidebar.html" class="zoom-scal zoom-scal-nopb rounded-4"><img class="rounded-4 blur-up lazyload" src="{% static 'assets/images/logo/brandlogo1.png' %}" alt="Brand Logo" title="" width="194" height="97" /></a>
+                                                </div>
+                                                <div class="brands-logo">
+                                                    <a href="shop-right-sidebar.html" class="zoom-scal zoom-scal-nopb rounded-4"><img class="rounded-4 blur-up lazyload" src="{% static 'assets/images/logo/brandlogo2.png' %}" alt="Brand Logo" title="" width="194" height="97" /></a>
+                                                </div>
+                                                <div class="brands-logo">
+                                                    <a href="shop-right-sidebar.html" class="zoom-scal zoom-scal-nopb rounded-4"><img class="rounded-4 blur-up lazyload" src="{% static 'assets/images/logo/brandlogo3.png' %}" alt="Brand Logo" title="" width="194" height="97" /></a>
+                                                </div>
+                                                <div class="brands-logo">
+                                                    <a href="shop-right-sidebar.html" class="zoom-scal zoom-scal-nopb rounded-4"><img class="rounded-4 blur-up lazyload" src="{% static 'assets/images/logo/brandlogo4.png' %}" alt="Brand Logo" title="" width="194" height="97" /></a>
+                                                </div>
+                                                <div class="brands-logo">
+                                                    <a href="shop-right-sidebar.html" class="zoom-scal zoom-scal-nopb rounded-4"><img class="rounded-4 blur-up lazyload" src="{% static 'assets/images/logo/brandlogo5.png' %}" alt="Brand Logo" title="" width="194" height="97" /></a>
+                                                </div>
+                                                <div class="brands-logo">
+                                                    <a href="shop-right-sidebar.html" class="zoom-scal zoom-scal-nopb rounded-4"><img class="rounded-4 blur-up lazyload" src="{% static 'assets/images/logo/brandlogo6.png' %}" alt="Brand Logo" title="" width="194" height="97" /></a>
+                                                </div>
+                                                <div class="brands-logo">
+                                                    <a href="shop-right-sidebar.html" class="zoom-scal zoom-scal-nopb rounded-4"><img class="rounded-4 blur-up lazyload" src="{% static 'assets/images/logo/brandlogo7.png' %}" alt="Brand Logo" title="" width="194" height="97" /></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                End Brand Logo-->
+                
+                                <!--Newsletter Section
+                                <div class="newsletterbg clearfix">
+                                    <div class="container container-1330">
+                                        <form action="#" method="post" class="footer-newsletter">
+                                            <div class="row align-items-center">
+                                                <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-3 mb-4 mb-lg-0">
+                                                    <div class="ftr-logoText text-lg-start">
+                                                        <img class="logoImg" src="{% static 'assets/images/logo-organic-white.png' %}" alt="Hema Multipurpose Html Template" title="Hema Multipurpose Html Template" width="149" height="39" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 mb-3 mb-md-0 text-md-start">
+                                                    <label class="h3 clr-none">Subscribe to our Newsletter</label>
+                                                </div>
+                                                <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-5">
+                                                    <div class="d-flex flex-column flex-sm-row">
+                                                        <input type="email" class="form-control newsletter-input mb-2 mb-sm-0 me-sm-2" name="email" value="" placeholder="Email address here..." required />
+                                                        <button type="submit" class="btn btn-primary newsletter-submit mt-1 mt-sm-0 ms-sm-1" name="commit">Subscribe</button>
+                                                    </div>  
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                End Newsletter Section-->
+
+
+                            </div>
+                            <!-- End Body Container -->
+
+
+                            {% endblock content %}
+                
+                            

@@ -1,0 +1,1209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    
+
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="description">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Title Of Site -->
+        <title>Oishi Mart: Multi-Vendor Ecommerce Platform</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}" />
+        <!-- Plugins CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+        <!-- Main Style CSS -->
+        <link rel="stylesheet" href="{% static 'assets/css/style-min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+		<style>
+        
+        .sticky-div {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Ensure it's above other elements */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .iconn {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            line-height: 32px;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
+        .sticky-div:hover {
+			transition: max-height 0.3s ease, opacity 0.3s ease;
+            
+        }
+
+        .sticky-div:hover .textt {
+            display: inline-block;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .textt {
+			transition: max-height 0.3s ease, opacity 0.3s ease;
+            display: none;
+            vertical-align: middle;
+            margin-left: 10px;
+            opacity: 0;
+        }
+
+
+
+		.full-width-button {
+            display: block;
+            width: 100%;
+            padding-left: 15px;
+			padding-right: 15px;
+			padding-top: 8px;
+			padding-bottom: 8px;
+            background-color: #aa351a;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+			border-radius: 10px;
+        }
+
+        .full-width-button:hover {
+            background-color: #ef522e;
+			color: #fff;
+        }
+
+
+		.full-width-button a:hover {
+			color: #fff;
+		}
+
+
+
+
+
+
+		.loupe-widget {
+			  position: relative;
+			  display: inline-block;
+			  will-change: transform;
+			}
+			.loupe-widget__loupe {
+			  position: absolute;
+			  z-index: 100;
+			  top: 50%;
+			  left: 50%;
+			  width: 200px;
+			  height: 200px;
+			  transform: translate(-50%, -50%);
+			  border-radius: 50%;
+			  background-repeat: no-repeat;
+			  border: 2px solid #222;
+			  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+			  background-color: white;
+			  display: none;
+			}
+			.loupe-widget:hover {
+			  cursor: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7), auto;
+			}
+			.loupe-widget:hover .loupe-widget__loupe {
+			  display: block;
+			  pointer-events: none;
+			}
+
+
+		/* menu */
+
+		.dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  
+}
+
+.dropdown-text {
+  cursor: pointer;
+  position: absolute;
+  text-indent: 10px;
+  line-height: 32px;
+
+  border: 0px solid #ccc;
+  border-radius: 3px;
+  
+  width: 100%;
+}
+
+.dropdown-text:after {
+  position: absolute;
+  right: 6px;
+  top: 15px;
+  content: '';
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 5px 4px 0 4px;
+  border-color: #555 transparent transparent transparent;
+}
+
+.dropdown-text,
+.dropdown-content a {
+  color: #333;
+  text-shadow: 0 1px #fff;
+}
+
+.dropdown-toggle {
+  font-size: 0;
+  z-index: 1;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  border: none;
+  padding: 0;
+  margin: 0 0 0 1px;
+  background: transparent;
+  text-indent: -10px;
+  height: 34px;
+  width: 100%;
+}
+
+.dropdown-toggle:focus {
+  outline: 0;
+}
+
+.dropdown-content {
+  -webkit-transition: all .25s ease;
+  -moz-transition: all .25s ease;
+  -ms-transition: all .25s ease;
+  -o-transition: all .25s ease;
+  transition: all .25s ease;
+  list-style-type: none;
+  position: absolute;
+  top: 32px;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  visibility:hidden;
+  border-radius: 3px;
+  text-indent: 10px;
+  line-height: 32px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  width: 140px;
+}
+
+.dropdown-content a {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background: #e8e8e8;
+}
+
+
+.dropdown-toggle:hover ~ .dropdown-text,
+.dropdown-toggle:focus ~ .dropdown-text {
+  background-color: #e8e8e8;
+}
+
+.dropdown-toggle:focus ~ .dropdown-text {
+  box-shadow: 0 1px 3px rgba(0,0,0, .2) inset, 0 1px 0 rgba(255,255,255, 0.8);
+  z-index: 2;
+}
+
+.dropdown-toggle:focus ~ .dropdown-text:after {
+  border-width: 0 4px 5px 4px;
+  border-color: transparent transparent #555 transparent;
+}
+
+.dropdown-content:hover,
+.dropdown-toggle:focus ~ .dropdown-content {
+  opacity: 1;
+  visibility:visible;
+  top: 42px;
+}
+
+
+		</style>
+
+
+    </head>
+
+    <body class="template-index index-demo7">
+
+		<div class="sticky-div">
+        <div class="iconn"><img src="{% static 'assets/images/icons/wholesaler.png' %}" width="32" height="32" /></div>
+        <span class="textt">Wholesale</span>
+		</div>
+        
+        
+		<!--Page Wrapper-->
+        <div class="page-wrapper">
+
+            <!--Top Header
+            <div class="top-header bg-white text-uppercase">
+                <div class="container container-1330">
+                    <div class="row align-items-center">
+                        <div class="col-8 col-sm-6 col-md-4 col-lg-4 text-left">
+                            <div class="select-wrap language-picker float-start">
+                                <ul class="default-option">
+                                    <li><div class="option english"><div class="icon"><img src="{% static 'assets/images/flag/english.png' %}" alt="english" width="24" height="24" /></div><span>English</span></div></li>
+                                </ul>
+                                <ul class="select-ul">
+                                    <li><div class="option english"><div class="icon"><img src="{% static 'assets/images/flag/english.png' %}" alt="english" width="24" height="24" /></div><span>English</span></div></li>
+                                    <li><div class="option arabic"><div class="icon"><img src="{% static 'assets/images/flag/arabic.png' %}" alt="arabic" width="24" height="24" /></div><span>Arabic</span></div></li>
+                                    <li><div class="option english"><div class="icon"><img src="{% static 'assets/images/flag/french.png' %}" alt="french" width="24" height="24" /></div><span>French</span></div></li>
+                                </ul>
+                            </div>
+                            <div class="select-wrap currency-picker float-start">
+                                <ul class="default-option">
+                                    <li><div class="option USD"><div class="icon"><img src="{% static 'assets/images/flag/usd.png' %}" alt="usd" width="24" height="24" /></div><span>USD</span></div></li>
+                                </ul>
+                                <ul class="select-ul">
+                                    <li><div class="option USD"><div class="icon"><img src="{% static 'assets/images/flag/usd.png' %}" alt="usd" width="24" height="24" /></div><span>USD</span></div></li>
+                                    <li><div class="option EUR"><div class="icon"><img src="{% static 'assets/images/flag/eur.png' %}" alt="eur" width="24" height="24" /></div><span>EUR</span></div></li>
+                                    <li><div class="option GBP"><div class="icon"><img src="{% static 'assets/images/flag/gbp.png' %}" alt="gbp" width="24" height="24" /></div><span>GBP</span></div></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-4 text-center d-none d-md-block">
+                            <div class="promo-items promo-slider-1items">
+                                <div class="item">Free shipping on order above $99</div>
+                                <div class="item">20% Discount all New customers</div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-6 col-md-4 col-lg-4 text-right d-flex align-items-center justify-content-end">
+                            <span class="phone-txt me-2 d-none d-sm-inline">Need help? Call Us:</span>
+                            <a href="tel:401234567890" class="phone d-flex-center float-start text-nowrap"><i class="icon anm anm-phone-l d-none d-sm-none"></i> <span class="phone-no d-inline d-sm-inline">(+40) 123 456 7890</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            End Top Header-->
+
+            <!--Header-->
+            <header class="header header-7"> 
+                <!--Header inner header-fixed -->
+				
+                <div class="header-main d-flex align-items-center">
+				<div class="header-fixed" id="hideableDiv" style="position: fixed;width: 100%;transition: top 0.8s; z-index: 1000;background-color: #fff;box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);padding-top: 70px;padding-bottom: 20px;">
+                    <div class="container container-1330">        
+                        <div class="row align-items-center">
+                            <div class="col-4 col-sm-4 col-md-5 col-lg-5 col-xl-6 align-self-center icons-col text-left d-xl-none">
+                                <!--Mobile Toggle-->
+                                <button type="button" class="iconset icon-link ps-0 menu-icon js-mobile-nav-toggle mobile-nav--open d-inline-flex flex-column d-lg-none">
+                                    <span class="iconCot"><i class="hdr-icon icon anm anm-times-l"></i><i class="hdr-icon icon anm anm-bars-r"></i></span>
+                                    <span class="text d-none">Menu</span>
+                                </button>
+                                <!--End Mobile Toggle-->
+                                <!--Search Mobile-->
+                                <div class="search-parent iconset d-xl-none">
+                                    <div class="site-search">
+                                        <a href="#;" class="search-icon icon-link clr-none d-flex" data-bs-toggle="offcanvas" data-bs-target="#search-drawer">
+                                            <span class="iconCot"><i class="hdr-icon icon anm anm-search-l"></i></span>
+                                            <span class="text d-none d-xl-flex flex-column text-left">Search</span>
+                                        </a>
+                                    </div>
+                                    <div class="search-drawer offcanvas offcanvas-top" tabindex="-1" id="search-drawer">
+                                        <div class="container">
+                                            <div class="search-header d-flex-center justify-content-between mb-3">
+                                                <h3 class="title m-0">What are you looking for?</h3>
+                                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                            </div>
+                                            <div class="search-body">
+                                                <form class="form minisearch" id="header-search" action="#" method="get">
+                                                    <!--Search Field-->
+                                                    <div class="d-flex searchField">
+                                                        <div class="search-category">
+                                                            <select class="rgsearch-category rounded-end-0">
+                                                                <option value="0">All</option>
+                                                                {% for category in categories %}
+                                                                <option value="1">{{ category.title }}</option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        </div>
+                                                        <div class="input-box d-flex fl-1">
+                                                            <input type="text" class="input-text rounded-0 border-start-0 border-end-0" placeholder="Search for products..." value="" />
+                                                            <button type="submit" class="action search d-flex-justify-center btn btn-primary rounded-start-0"><i class="icon anm anm-search-l"></i></button>
+                                                        </div>
+                                                    </div>
+                                                    <!--End Search Field-->
+                                                    <!--Search popular-->
+                                                    <div class="popular-searches d-flex-justify-center mt-3">
+                                                        <span class="title fw-600">Trending Now:</span>
+                                                        <div class="d-flex-wrap searches-items">
+                                                            <a class="text-link ms-2" href="#">Apple,</a>
+                                                            <a class="text-link ms-2" href="#">Potatos,</a>
+                                                            <a class="text-link ms-2" href="#">Tomato</a>
+                                                        </div>
+                                                    </div>
+                                                    <!--End Search popular-->
+                                                    <!--Search products-->
+                                                    <div class="search-products">
+                                                        <ul class="items g-2 g-md-3 row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+                                                            <li class="item empty w-100 text-center text-muted d-none">You don't have any items in your search.</li>
+                                                            <li class="item">                                                       
+                                                                <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                                    <div class="mini-image text-center"><a class="item-link" href="./product_details"><img class="rounded-4 blur-up lazyload" data-src="assets/images/products/vegetables-product1-120x170.jpg" src="{% static 'assets/images/products/vegetables-product1-120x170.jpg' %}" alt="image" title="product" width="120" height="170" /></a></div>
+                                                                    <div class="ms-3 details text-left">
+                                                                        <div class="product-name"><a class="item-title" href="./product_details">Fresh Kashmiri Apple</a></div>
+                                                                        <div class="product-price"><span class="old-price">$114.00</span><span class="price">$99.00</span></div>
+                                                                        <div class="product-review d-flex align-items-center justify-content-start">
+                                                                            <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i><i class="icon anm anm-star-o"></i>
+                                                                            <span class="caption hidden ms-2">3 reviews</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="item">
+                                                                <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                                    <div class="mini-image text-center"><a class="item-link" href="./product_details"><img class="rounded-4 blur-up lazyload" data-src="assets/images/products/vegetables-product2-120x170.jpg" src="{% static 'assets/images/products/vegetables-product2-120x170.jpg' %}" alt="image" title="product" width="120" height="170" /></a></div>
+                                                                    <div class="ms-3 details text-left">
+                                                                        <div class="product-name"><a class="item-title" href="./product_details">Organic Potatos</a></div>
+                                                                        <div class="product-price"><span class="price">$128.00</span></div>
+                                                                        <div class="product-review d-flex align-items-center justify-content-start">
+                                                                            <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i>
+                                                                            <span class="caption hidden ms-2">9 reviews</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="item">
+                                                                <div class="mini-list-item d-flex align-items-center w-100 clearfix">
+                                                                    <div class="mini-image text-center"><a class="item-link" href="./product_details"><img class="rounded-4 blur-up lazyload" data-src="assets/images/products/vegetables-product3-120x170.jpg" src="{% static 'assets/images/products/vegetables-product3-120x170.jpg' %}" alt="image" title="product" width="120" height="170" /></a></div>
+                                                                    <div class="ms-3 details text-left">
+                                                                        <div class="product-name"><a class="item-title" href="./product_details">Vegan Fresh Tomato</a></div>
+                                                                        <div class="product-price"><span class="price">$99.00</span></div>
+                                                                        <div class="product-review d-flex align-items-center justify-content-start">
+                                                                            <i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star"></i><i class="icon anm anm-star-o"></i>
+                                                                            <span class="caption hidden ms-2">30 reviews</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <!--End Search products-->
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Search Mobile--> 
+                                <!--Account Mobile-->
+                                <div class="account-parent iconset d-inline-block d-xl-none">
+                                    <div class="account-link"><span class="iconCot"><i class="hdr-icon icon anm anm-user-al"></i></span></div>
+                                    <div id="accountBox">
+                                        <div class="customer-links">
+                                            <ul class="m-0">
+                                                <li><a href="./login"><i class="icon anm anm-sign-in-al"></i>Sign In</a></li>
+                                                <li><a href="./register"><i class="icon anm anm-user-al"></i>Register</a></li>
+                                                <li><a href="./my-account"><i class="icon anm anm-user-cil"></i>My Account</a></li>
+                                                <li><a href="#"><i class="icon anm anm-heart-l"></i>Wishlist</a></li>
+                                                <li><a href="#"><i class="icon anm anm-random-r"></i>Compare</a></li>
+                                                <li><a href="#"><i class="icon anm anm-sign-out-al"></i>Sign out</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Account Mobile-->
+                            </div> <!-- end of mobile -->
+
+                            <!--Logo-->
+                            <div class="logo col-4 col-sm-4 col-md-2 col-lg-2 col-xl-3 align-self-left">
+                                <a class="logoImg" href="{{ request.scheme }}://{{ request.get_host }}"><img class="mx-auto mx-xl-0" src="{% static 'assets/images/1.png' %}" alt="Oishi Mart" title="Multi-Vendor Ecommerce Platform" /></a>
+                            </div>
+                            <!--End Logo-->
+
+                            <!--Search Inline-->
+                            <div class="col-2 col-sm-2 col-md-2 col-lg-5 col-xl-5 align-self-center d-none d-xl-block">							
+
+
+                                <div class="minisearch-inline">
+									
+                                    <form class="form minisearch" id="header-search0" action="#" method="get">
+                                        <label class="label d-none"><span>Search</span></label>
+                                        <!--Search Field-->
+                                        <div class="d-flex searchField">
+                                            
+                                            <div class="input-box d-flex fl-1 position-relative">
+
+
+												<!-- category menu -->
+
+												
+
+												<div class="dropdown" id="catmenu" class="input-group-btn action search d-flex-justify-center text-link" style="position: relative; float: left; width: 150px; height: 35px; top: 5px; right: 10px;display: none;">
+												  <input class="dropdown-toggle" type="text">
+												  <div class="dropdown-text">Categories</div>
+												  <ul class="dropdown-content">
+													{% for category in categories %}
+                                                    <li><a href="category/{{ category.cid }}/" onclick="event.preventDefault();">{{ category.title }}</a></li>
+                                                    {% endfor %}
+													
+												  </ul>
+												</div>
+												
+                                                <input type="text" class="input-group-field input-text rounded-pill" placeholder="Search for products, brands..." value="" />
+                                                <button type="submit" class="input-group-btn action search d-flex-justify-center text-link" style="position: relative;
+  float: right;
+  width: 60px;
+  height: 35px;
+  top: 5px;
+  right: 60px;
+  background-color: #f9dfd9;
+  border-radius: 15px;"><i class="hdr-icon icon anm anm-search-l"></i></button>
+                                            </div>
+                                        </div>
+                                        <!--End Search Field-->
+                                    </form>
+                                </div>
+                            </div>
+                            <!--End Search Inline-->
+
+                            <!--Right Icon-->
+                            <div class="col-3 col-sm-3 col-md-4 col-lg-4 col-xl-4 align-self-center icons-col text-right">
+                                <!--Compare
+                                <div class="compare-link iconset d-none d-sm-inline-block">
+                                    <a href="compare-style1.html" class="icon-link clr-none d-flex">
+                                        <span class="iconCot"><i class="hdr-icon icon anm anm-random-r"></i><span class="wishlist-count d-xl-none">3</span></span>
+                                        <span class="text d-none d-xl-flex flex-column text-left">Compare <small>0 Item</small></span>
+                                    </a>
+                                </div>
+                                End Compare
+                                <div class="compare-link iconset d-none d-sm-inline-block">
+                                    <a class="icon-link clr-none d-flex  align-items-center">
+                                        <span class="text d-none d-xl-flex flex-column text-left">Become a Seller</span>
+                                    </a>
+                                </div> -->
+                                <!--Wishlist
+                                <div class="wishlist-link iconset">
+                                    <a class="icon-link clr-none d-flex  align-items-center">
+                                        <div class="select-wrap language-picker float-start">
+                                            <ul class="default-option">
+                                                <li><div class="option english"><div class="icon"><img src="{% static 'assets/images/flag/english.png' %}" alt="english" width="24" height="24" /></div><span>English</span></div></li>
+                                            </ul>
+                                            <ul class="select-ul">
+                                                <li><div class="option english"><div class="icon"><img src="{% static 'assets/images/flag/english.png' %}" alt="english" width="24" height="24" /></div><span>English</span></div></li>
+                                                <li><div class="option arabic"><div class="icon"><img src="{% static 'assets/images/flag/arabic.png' %}" alt="arabic" width="24" height="24" /></div><span>Arabic</span></div></li>
+                                                <li><div class="option english"><div class="icon"><img src="{% static 'assets/images/flag/french.png' %}" alt="french" width="24" height="24" /></div><span>French</span></div></li>
+                                            </ul>
+                                        </div>
+                                </a>
+                                </div> -->
+
+								<div class="account-link d-none d-xl-inline-block" style="padding-right: 15px;">
+                                    <div class="clr-none d-flex align-items-center">
+                                        <span><img src="{% static 'assets/svg/seller.svg' %}" height="38" width="38" /></span>
+                                        <div class="d-flex flex-column text-left"><span style="line-height: 1.0;font-size: 12px;padding-left: 5px;">Become a</span><span style="line-height: 1.2;font-size: 14px;padding-left: 5px;"><a href="./login">Seller</a></span></div>
+                                    </div>
+                                </div>
+
+								
+
+								<div class="setting-parent iconset" style="padding-right: 15px;">
+									<div class="setting-link" title="Setting">
+										<div class="clr-none d-flex align-items-center">
+                                        <span><img src="{% static 'assets/svg/bd-flag.png' %}" height="32" width="32" /></span>
+                                        <div class="d-flex flex-column text-left"><span style="line-height: 1.0;font-size: 14px;padding-left: 5px;">EN/</span><span style="line-height: 1.2;font-size: 14px;padding-left: 5px;"><a href="./login">BDT</a></span></div>
+										</div>
+									</div>
+									<div id="settingsBox">
+										<div class="currency-picker mb-2">
+											<span class="ttl">Select Currency</span>
+											<ul id="currencies" class="cnrLangList">
+												<li class="selected"><a href="#;" class="active">INR</a></li><li><a href="#;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#000'">GBP</a></li><li><a href="#;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#000'">CAD</a></li><li><a href="#;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#000'">USD</a></li><li><a href="#;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#000'">AUD</a></li><li><a href="#;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#000'">EUR</a></li><li><a href="#;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#000'">JPY</a></li>
+											</ul>
+										</div>
+										<div class="language-picker">
+											<span class="ttl">Select Language</span>
+											<ul id="language" class="cnrLangList">
+												<li><a href="#" class="active">English</a></li><li><a href="#" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#000'">French</a></li><li><a href="#" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#000'">German</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+
+                                <!--End Wishlist-->
+                                <!--Account desktop-->
+                                <div class="account-link d-none d-xl-inline-block" style="padding-right: 15px;">
+                                    <div class="clr-none d-flex align-items-center">
+                                        <span><img src="{% static 'assets/svg/user.svg' %}" height="32" width="32" /></span>
+
+                                        {% if user.is_authenticated %}
+                                            
+                                            
+                                            <div class="d-flex flex-column text-left"><span style="line-height: 1.0;font-size: 12px;padding-left: 5px;">Welcome, {{ user.username }}</span><span style="line-height: 1.2;font-size: 14px;padding-left: 5px;"><a href="{% url 'userauths:sign-out' %}">Sign out</a></span></div>
+                                        {% else %}
+                                        <div class="d-flex flex-column text-left"><span style="line-height: 1.0;font-size: 12px;padding-left: 5px;">Welcome</span><span style="line-height: 1.2;font-size: 14px;padding-left: 5px;"><a href="{% url 'userauths:sign-in' %}">Sign in/Register</a></span></div>
+                                        {% endif %}
+                                        
+                                        <!--<div class="d-flex flex-column text-left"><span style="line-height: 1.0;font-size: 12px;padding-left: 5px;">Welcome</span><span style="line-height: 1.2;font-size: 14px;padding-left: 5px;"><a href="./login">Sign in/Register</a></span></div>-->
+                                    </div>
+                                </div>
+                                
+                                <!--End Account desktop-->
+
+								<div class="account-link d-none d-xl-inline-block">
+                                    <div class="clr-none d-flex align-items-center">
+                                        <span><img src="{% static 'assets/svg/bag.svg' %}" height="38" width="38" data-bs-toggle="offcanvas" data-bs-target="#minicart-drawer" /></span>
+                                        <span class="cart-count cart-items-count">{{ request.session.cart_data_obj|length }}</span>
+                                    </div>
+                                </div>
+
+
+                                <!--Minicart
+                                <div class="header-cart iconset pe-0">
+                                    <a href="#;" class="header-cart btn-minicart icon-link clr-none d-flex align-items-center" data-bs-toggle="offcanvas" data-bs-target="#minicart-drawer">
+                                        <span class="iconCot"><i class="hdr-icon icon anm anm-basket-l"></i><span class="cart-count">2</span></span>
+
+                                    </a>
+                                </div>
+                                End Minicart-->
+                            </div>
+                            <!--End Right Icon-->
+                        </div>                                                
+                    </div>
+                </div>
+				</div>
+                <!--End Header inner-->
+                <!--Navigation Desktop-->
+                <div class="main-menu-outer d-none d-lg-block" style="margin-top: 50px;">
+                    <div class="container container-1330">
+                        <div class="menu-outer rounded-4">
+                            <div class="row g-0">  
+                                <div class="col-1 col-sm-1 col-md-1 col-lg-3 align-self-center">                                   
+                                    <div class="header-vertical-menu toggle">
+                                        <h4 class="menu-title d-flex-center body-font"><i class="icon anm anm-bars-r"></i><span class="text">Browse Categories</span></h4>
+                                        <div class="vertical-menu-content rounded-4 rounded-top-0">
+                                            <ul class="menuList">
+                                                {% for category in categories %}
+                                                <li><a href="{% url 'core:category-product-list' category.cid %}" class="nav-link">{{ category.title }}</a></li>
+                                                {% endfor %}
+                                                <li>
+                                                    <ul class="moreSlideOpen">
+                                                        <li><a href="#" class="nav-link">Watches</a></li>
+                                                        <li><a href="#" class="nav-link">Shoes</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <div class="moreCategories border-0">View All Categories</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 col-sm-1 col-md-1 col-lg-7 align-self-center d-menu-col hdr-menu-left menu-position-left">
+                                    <nav class="navigation ps-lg-3" id="AccessibleNav">
+                                        <ul id="siteNav" class="site-nav medium left">
+                                            <li class="lvl1"><a href="#">Friday Special</a>
+                                                
+                                            </li>
+                                            <li class="lvl1"><a href="#">Super Deals</a>
+                                                
+                                            </li>
+                                            <li class="lvl1"><a href="#">New Arrivals</a>
+                                                
+                                            </li>
+                                            <li class="lvl1"><a href="#">Top Seller</a>
+                                                
+                                            </li>
+                                            <li class="lvl1"><a href="#">Hot Category</a>
+                                                
+                                            </li>
+                                            
+                                            <li class="lvl1 parent dropdown"><a href="#">more <i class="icon anm anm-angle-down-l"></i></a>
+                                                <ul class="dropdown">
+                                                    
+                                                    <li><a href="#" class="site-nav">Link One</a></li>
+                                                    <li><a href="#" class="site-nav">Link Two</a></li>
+                                                    <li><a href="#" class="site-nav">Link Three</a></li>
+                                                    <li><a href="#" class="site-nav">Link Four</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="col-1 col-sm-1 col-md-1 col-lg-2 align-self-center text-right">
+                                    <a href="#" class="store-link text-uppercase">Wholesale <img class="ms-1" src="{% static 'assets/images/icons/go-shape.png' %}" alt="icon" width="38" height="38" /></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--End Navigation Desktop-->
+            </header>
+            <!--End Header-->
+
+            {% if messages %}
+                {% for message in messages %}
+
+                    <div class="alert alert-{{message.tags}}">
+                    <strong>{{message}}</strong>
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+
+            <script>
+                setTimeout (() => {
+
+                    $(".alert").alert("close");
+
+                }, 3000)        
+                
+            </script>
+
+            <!--Mobile Menu-->
+            <div class="mobile-nav-wrapper mobileMenu-bg-black" role="navigation">
+                <div class="closemobileMenu">Close Menu <i class="icon anm anm-times-l"></i></div>
+                <ul id="MobileNav" class="mobile-nav">
+                    <li class="lvl1 parent dropdown"><a href="#">Browse Categories <i class="icon anm anm-angle-down-l"></i></a>
+                        <ul class="lvl-2">                          
+                            <li><a href="#" class="site-nav">Jewellery <i class="icon anm anm-angle-down-l"></i></a>
+                                <ul class="lvl-3 dropdown">                                  
+                                    <li><a href="#" class="site-nav">Diamonds Jewelry <i class="icon anm anm-angle-down-l"></i></a>
+                                        <ul class="lvl-4 dropdown">                                            
+                                            <li><a href="#" class="site-nav">New Arrivals</a></li>
+                                            <li><a href="#" class="site-nav">Best Sellers</a></li>
+                                            <li><a href="#" class="site-nav">Trending</a></li>
+                                            <li><a href="#" class="site-nav">Necklaces</a></li>
+                                            <li><a href="#" class="site-nav">Engagement ring</a></li>
+                                            <li><a href="#" class="site-nav">Gospel bracelet</a></li>
+                                            <li><a href="#" class="site-nav">Rosary beads</a></li>
+                                            <li><a href="#" class="site-nav last">Puzzle jewelry</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="site-nav">Diamonds Jewelry <i class="icon anm anm-angle-down-l"></i></a>
+                                        <ul class="lvl-4 dropdown">                                            
+                                            <li><a href="#" class="site-nav">Belly chain</a></li>
+                                            <li><a href="#" class="site-nav">Chatelaine</a></li>
+                                            <li><a href="#" class="site-nav">Slave bracelet</a></li>
+                                            <li><a href="#" class="site-nav">Breastplate</a></li>
+                                            <li><a href="#" class="site-nav">Diamonds</a></li>
+                                            <li><a href="#" class="site-nav">Perfect rings</a></li>
+                                            <li><a href="#" class="site-nav">Accessories</a></li>
+                                            <li><a href="#" class="site-nav last">Prayer jewelry</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="site-nav">Fashion <i class="icon anm anm-angle-down-l"></i></a>
+                                <ul class="lvl-3 dropdown">                                  
+                                    <li><a href="#" class="site-nav">Accessories <i class="icon anm anm-angle-down-l"></i></a>
+                                        <ul class="lvl-4 dropdown">                                            
+                                            <li><a href="#">Jackets</a></li>
+                                            <li><a href="#">Dresses</a></li>
+                                            <li><a href="#">Blouses & Tops</a></li>
+                                            <li><a href="#">Skirts</a></li>
+                                            <li><a href="#">Outerwear</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="site-nav">Pullovers <i class="icon anm anm-angle-down-l"></i></a>
+                                        <ul class="lvl-4 dropdown">                                            
+                                            <li><a href="#">Pants &amp; Shorts</a></li>
+                                            <li><a href="#">Outerwear</a></li>
+                                            <li><a href="#">Skirts</a></li>
+                                            <li><a href="#">Blouses</a></li>
+                                            <li><a href="#">Dresses</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="site-nav">Handbags <i class="icon anm anm-angle-down-l"></i></a>
+                                        <ul class="lvl-4 dropdown">                                            
+                                            <li><a href="#">Jeans</a></li>
+                                            <li><a href="#">Blazers</a></li>
+                                            <li><a href="#">Bracelet</a></li>
+                                            <li><a href="#">Bedding Set</a></li>
+                                            <li><a href="#">Bodysuit</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="site-nav">Dress Material <i class="icon anm anm-angle-down-l"></i></a>
+                                        <ul class="lvl-4 dropdown">                                            
+                                            <li><a href="#">Dupatta</a></li>
+                                            <li><a href="#">Doormats</a></li>
+                                            <li><a href="#">Diwan Set</a></li>
+                                            <li><a href="#">Dhotis</a></li>
+                                            <li><a href="#">Face Towels</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#" class="site-nav">Electronics <i class="icon anm anm-angle-down-l"></i></a>
+                                <ul class="lvl-3 dropdown">  
+                                    <li><a href="#">Accessories</a></li>
+                                    <li><a href="#" class="site-nav">Footwear <i class="icon anm anm-angle-down-l"></i></a>
+                                        <ul class="lvl-4 dropdown">  
+                                            <li><a href="#">Backpacks</a></li>
+                                            <li><a href="#">Wallets</a></li>
+                                            <li><a href="#">Belts</a></li>
+                                            <li><a href="#">Sunglasses</a></li>                                       
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Bottom wear</a></li>
+                                    <li><a href="#">Cargos</a></li>
+                                    <li><a href="#">Track pants</a></li>
+                                    <li><a href="#">Winter wear</a></li>                                   
+                                </ul>
+                            </li>
+                            <li><a href="#" class="site-nav">Cosmetics &amp; Beauty</a></li>
+                            <li><a href="#" class="site-nav">Digital Camera</a></li>
+                            <li><a href="#" class="site-nav">Smart Phones</a></li>
+                            <li><a href="#" class="site-nav">Furniture</a></li>
+                            <li><a href="#" class="site-nav">Toys &amp; Game</a></li>
+                            <li><a href="#" class="site-nav">Health &amp; Beauty</a></li>
+                            <li><a href="#" class="site-nav">Gift Ideas</a></li>
+                            <li><a href="#" class="site-nav">Health Care</a></li>
+                            <li><a href="#" class="site-nav">Watches</a></li>
+                            <li><a href="#" class="site-nav last">Shoes</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="lvl1"><a href="#">Friday Special</a>
+                                                
+                    </li>
+                    <li class="lvl1"><a href="#">Super Deals</a>
+                        
+                    </li>
+                    <li class="lvl1"><a href="#">New Arrivals</a>
+                        
+                    </li>
+                    <li class="lvl1"><a href="#">Top Seller</a>
+                        
+                    </li>
+                    <li class="lvl1"><a href="#">Hot Category</a>
+                        
+                    </li>
+                    
+                    <li class="lvl1 parent dropdown"><a href="#">more <i class="icon anm anm-angle-down-l"></i></a>
+                        <ul class="dropdown">
+                            
+                            <li><a href="#" class="site-nav">Link One</a></li>
+                            <li><a href="#" class="site-nav">Link Two</a></li>
+                            <li><a href="#" class="site-nav">Link Three</a></li>
+                            <li><a href="#" class="site-nav">Link Four</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--End Mobile Menu-->
+
+            {% block content %}
+
+            {% endblock content %}
+
+
+            <!--Footer-->
+            <div class="footer footer-2 ftr-bg-black">
+                <div class="footer-top border-0 clearfix">
+                    <div class="container container-1330">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-3 ftr-lft-logo mb-4 mb-lg-0">
+                                
+                                <h4 class="h4">About Oishi Mart</h4>
+                                        <ul>
+                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                            
+                                        </ul>
+                                        <p>&nbsp;</p>
+                                        <h4 class="h4">Customer Care</h4>
+                                        <p class="phone d-flex align-items-center fs-5 fw-600 mb-2"><a href="tel:401234567890">(+40) 123 456 7890</a></p>
+                                        
+                            </div>
+
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-2 ftr-lft-logo">
+
+                                        <h4 class="h4">Become a Seller</h4>
+                                        <ul>
+                                            <li><a href="#">Seller Registration</a></li>
+                                            <li><a href="#">Terms & Conditions</a></li>
+                                            <li><a href="#">How to Become a Seller</a></li>
+                                            
+                                        </ul>
+                                 
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-2 ftr-lft-logo">
+
+                                        <h4 class="h4">Terms & conditions</h4>
+                                        <ul>                                            
+                                            <li><a href="#">Returns</a></li>
+                                            <li><a href="#">Privacy policy</a></li>
+                                            <li><a href="#">Terms &amp; condition</a></li>
+                                        </ul>
+                                 
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-2 ftr-lft-logo">
+
+                                    <h4 class="h4">Payment Method</h4>
+                                        
+                                        <img src="{% static 'assets/images/paywith_mobile_versionW.png' %}" />
+                                 
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+
+                                        <h4 class="h4">Follow Us</h4>
+
+
+                                        <ul class="list-inline social-icons d-inline-flex align-items-center justify-content-center justify-content-sm-start col-12 col-sm-6 col-lg-5">
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"><img src="{% static 'assets/images/icons/facebook.png' %}" /></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter"><img src="{% static 'assets/images/icons/twitter.png' %}" /></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Linkedin"><img src="{% static 'assets/images/icons/linkedin.png' %}" /></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><img src="{% static 'assets/images/icons/instagram.png' %}" /></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><img src="{% static 'assets/images/icons/youtube.png' %}" /></a></li>
+                                        </ul>
+                                 
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-middle clearfix">
+                    <div class="container container-1330">
+                        <ul class="ftr-info list-inline d-inline-flex w-100 justify-content-center text-center flex-column flex-sm-row">
+                            <li class="list-inline-item">Copyright&copy; 2023-24 Oishi Mart | All Rights Reserved</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            <!--End Footer-->
+
+            <!--Scoll Top-->
+            <div id="site-scroll" class="rounded-circle"><i class="icon anm anm-angle-up-r"></i></div>
+            <!--End Scoll Top-->
+
+            <!--MiniCart Drawer-->
+            <div id="minicart-drawer" class="minicart-right-drawer offcanvas offcanvas-end" tabindex="-1">
+                <!--MiniCart Empty-->
+                <div id="cartEmpty" class="cartEmpty d-flex-justify-center flex-column text-center p-3 text-muted d-none">
+                    <div class="minicart-header d-flex-center justify-content-between w-100">
+                        <h4 class="fs-6 body-font">Your cart (0 Items)</h4>
+                        <button class="close-cart border-0" data-bs-dismiss="offcanvas" aria-label="Close"><i class="icon anm anm-times-r" data-bs-toggle="tooltip" data-bs-placement="left" title="Close"></i></button>
+                    </div>
+                    <div class="cartEmpty-content mt-4">
+                        <i class="icon anm anm-basket-l fs-1 text-muted"></i> 
+                        <p class="my-3">No Products in the Cart</p>
+                        <a href="#" class="btn btn-primary cart-btn">Continue shopping</a>
+                    </div>
+                </div>
+                <!--End MiniCart Empty-->
+
+                <!--MiniCart Content-->
+                <div id="cart-drawer" class="block block-cart">
+                    <div class="minicart-header">
+                        <button class="close-cart border-0" data-bs-dismiss="offcanvas" aria-label="Close"><i class="icon anm anm-times-r" data-bs-toggle="tooltip" data-bs-placement="left" title="Close"></i></button>
+                        <h4 class="fs-6 body-font">Your cart ( {{ request.session.cart_data_obj|length }} Items)</h4>
+                    </div>
+                    <div class="minicart-content">
+                        <ul class="m-0 clearfix">
+                            
+                            {% for product_id, item in cart_data.items %}
+                            
+                            <li class="item d-flex justify-content-center align-items-center">
+                                <a class="product-image rounded-4" href="{% url 'core:product-detail' item.pid %}">
+                                    <img class="rounded-4 blur-up lazyload" data-src="{{ item.image }}" src="{{ item.image }}" alt="product" title="Product" width="120" height="170" />
+                                </a>
+                                <div class="product-details">
+                                    <a class="product-title" href="{% url 'core:product-detail' item.pid %}">{{ item.title }}</a>
+                                    
+                                    <div class="priceRow">
+                                        <div class="product-price">
+                                            <span class="price">৳{{ item.price|floatformat:2 }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="qtyDetail text-center">
+                                    <div class="qtyField">
+                                        <a class="qtyBtn minus" href="#;"><i class="icon anm anm-minus-r"></i></a>
+                                        <input type="text" name="quantity" value="1" class="qty rounded-pill">
+                                        <a class="qtyBtn plus" href="#;"><i class="icon anm anm-plus-r"></i></a>
+                                    </div>
+                                    <a href="#" class="edit-i remove"><i class="icon anm anm-pencil-ar" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"></i></a>
+                                    <a href="#" class="remove"><i class="icon anm anm-times-r" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove"></i></a>
+                                </div>
+                            </li>
+
+                            {% endfor %}
+                            
+                        </ul>
+                    </div>
+                    <div class="minicart-bottom">
+                        
+                        <div class="minicart-action d-flex mt-3">
+                            <a href="./checkout" class="proceed-to-checkout btn btn-outline-secondary rounded-pill w-50 me-1">Check Out</a>
+                            <a href="{% url 'core:cart' %}" class="cart-btn btn btn-outline-primary rounded-pill w-50 ms-1">View Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <!--MiniCart Content-->
+            </div>
+            <!--End MiniCart Drawer-->
+
+            
+
+            <!--Newsletter Modal-->
+            <div class="newsletter-modal style2 modal fade" id="newsletter_modal" tabindex="-1" aria-hidden="true">           
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content border-0">
+                        <div class="modal-body p-0 whiteText">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="icon anm anm-times-l"></i></button>
+                            <div class="newsletter-wrap d-flex flex-row align-items-center">
+                                <div class="newsltr-img overlay position-absolute w-100 h-100 bg-size overflow-hidden">
+                                    <img class="bg-img blur-up" src="{% static 'assets/images/newsletter/newsletter-s9.jpg' %}" alt="image" width="546" height="392" />
+                                </div>
+                                <div class="newsltr-text text-center w-100">
+                                    <div class="wraptext mw-100">
+                                        <h2 class="title mb-2">Join Our Newsletter</h2>
+                                        <p class="text mb-3">Want exclusive access to discounts &amp; offers on premium brands?</p>
+                                        <form action="#" method="post" class="mcNewsletter mb-3">                               
+                                            <div class="input-group">
+                                                <input type="email" class="form-control input-group-field newsletter-input rounded-0" name="email" value="" placeholder="Email address" required />
+                                                <button type="submit" class="input-group-btn btn btn-primary newsletter-submit rounded-0" name="commit">Subscribe</button>
+                                            </div>
+                                        </form>
+                                        <ul class="list-inline social-icons d-inline-flex justify-content-center mb-3 w-100">
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Facebook"><i class="icon anm anm-facebook-f"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter"><i class="icon anm anm-twitter"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Pinterest"><i class="icon anm anm-pinterest-p"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Linkedin"><i class="icon anm anm-linkedin-in"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Instagram"><i class="icon anm anm-instagram"></i></a></li>
+                                            <li class="list-inline-item"><a href="#" data-bs-toggle="tooltip" data-bs-placement="top" title="Youtube"><i class="icon anm anm-youtube"></i></a></li>
+                                        </ul>
+                                        <div class="customCheckbox checkboxlink clearfix justify-content-center">
+                                            <input id="dontshow" name="newsPopup" type="checkbox" />
+                                            <label for="dontshow" class="mb-0">Don't show this popup again</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Newsletter Modal-->
+
+
+            <!-- Including Jquery/Javascript -->
+            <!-- Plugins JS -->
+            <script src="{% static 'assets/js/plugins.js' %}"></script>
+            <!-- Main JS -->
+            <script src="{% static 'assets/js/main.js' %}"></script>
+            <!--Newsletter Modal Cookies-->
+            <script>
+                $(window).ready(function () {
+                    setTimeout(function () {
+                        //$('#newsletter_modal').modal("show");
+                    }, 7000);
+                });
+            </script>
+            <!--End Newsletter Modal Cookies-->
+
+            <!-- Elevatezoom Zoom -->
+            <script src="{% static 'assets/js/vendor/jquery.elevatezoom.js' %}"></script>
+            <script>
+                $(document).ready(function () {
+                    /* Product Zoom */
+                    function product_zoom() {
+                        $(".zoompro").elevateZoom({
+                            gallery: "gallery",
+                            galleryActiveClass: "active",
+                            zoomWindowWidth: 300,
+                            zoomWindowHeight: 100,
+                            scrollZoom: false,
+                            zoomType: "inner",
+                            cursor: "crosshair"
+                        });
+                    }
+                    product_zoom();
+                });
+            </script>
+
+                       
+
+            <script>
+                let prevScrollPos = window.pageYOffset;
+
+                console.log('prev scroll pos:' + prevScrollPos);
+
+                window.addEventListener('scroll', function() {
+                  const currentScrollPos = window.pageYOffset;
+                  //const header = document.getElementById("header");
+                  const hideableDiv = document.getElementById("hideableDiv");
+
+                  const catmenu = $('#catmenu');
+
+                  console.log('start to scroll');
+
+                  //hideableDiv.style.display = "none";
+
+                  if (prevScrollPos < currentScrollPos) {
+                    //header.style.display = "block"; // Adjust this value to match the height of your header
+                    hideableDiv.style.transition = "opacity 0.3s";
+                    hideableDiv.style.opacity = "0";
+                    catmenu.show();
+                    console.log('Scroll to bottom');
+                  } else {
+                    //header.style.top = "0";
+                    const headerRect = hideableDiv.getBoundingClientRect();
+
+                    //hideableDiv.style.opacity = "1";
+
+                    if (headerRect.top === 0) {
+                      hideableDiv.style.transition = "opacity 0.3s";
+                      hideableDiv.style.opacity = "1";
+                      //$('#catmenu').hide();
+                      //console.log('Scroll to top');
+                    } else {
+                      hideableDiv.style.transition = "opacity 0.3s";
+                      hideableDiv.style.opacity = "1";
+                      //$('#catmenu').show();
+                      console.log('start to scroll 4');
+                    }
+                  }
+
+                  if(currentScrollPos == 0){					
+                    catmenu.hide();
+                  }
+
+                  console.log('Current scroll pos:' + currentScrollPos);
+
+                  prevScrollPos = currentScrollPos;
+                });          
+
+
+
+
+          </script>
+
+        <script>
+
+
+            // add to cart functionality
+
+            $(".add-to-cart-btn").on("click", function(){
+
+                let this_val = $(this)
+
+                let index = this_val.attr("data-index")
+
+                let quantity = $(".product-quantity-" + index).val();
+                let product_title = $(".product-title-" + index).val();
+
+                let product_id = $(".product-id-" + index).val();
+                let product_price = parseFloat($(".current-product-price-" + index).val());
+
+                let product_pid = $(".product-pid-" + index).val();
+                let product_image = $(".product-image-" + index).val();
+
+                
+
+                console.log("quantity:", quantity);
+                console.log("product_title:", product_title);
+                console.log("product_id:", product_id);
+                console.log("product_pid:", product_pid);
+                console.log("product_image:", product_image);
+                console.log("product_price:", product_price);
+                console.log("Index:", index);
+                console.log("Current Element:", this_val);
+
+                $.ajax({
+                    url: '/add-to-cart',
+                    data: {
+                        'id': product_id,
+                        'pid': product_pid,
+                        'image': product_image,
+                        'qty': quantity,
+                        'title': product_title,
+                        'price': product_price
+                    },
+                    dataType: 'json',
+                    beforeSend: function(){
+
+                        console.log("Adding product to cart....");
+
+                    },
+                    success: function(respose){
+
+                        this_val.html("✓");
+
+                        console.log("Added product to cart....");
+
+                        $('.cart-items-count').text(respose.totalcartitems);
+
+                    }
+                })
+            })
+
+            /*
+            $("#add-to-cart-btn").on("click", function(){
+                let quantity = $("#product-quantity").val();
+
+                let product_title = $(".product-title").val();
+
+                let product_id = $(".product-id").val();
+
+                let product_price = $("#current-product-price").text();
+
+                let this_val = $(this)
+
+                console.log("quantity:", quantity);
+                console.log("product_title:", product_title);
+                console.log("product_id:", product_id);
+                console.log("product_price:", product_price);
+                console.log("Current Element:", this_val);
+
+                $.ajax({
+                    url: '/add-to-cart',
+                    data: {
+                        'id': product_id,
+                        'qty': quantity,
+                        'title': product_title,
+                        'price': product_price
+                    },
+                    dataType: 'json',
+                    beforeSend: function(){
+
+                        console.log("Adding product to cart....");
+
+                    },
+                    success: function(respose){
+
+                        this_val.html("Item added to cart");
+
+                        console.log("Added product to cart....");
+
+                        $('.cart-items-count').text(respose.totalcartitems);
+
+                    }
+                })
+            })
+
+            */
+
+
+        </script>
+
+        </div>
+        <!--End Page Wrapper-->
+    </body>
+
+
+</html>

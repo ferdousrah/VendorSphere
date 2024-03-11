@@ -1,0 +1,126 @@
+            
+            {% extends 'partials/base.html' %}
+            
+            {% load static %}
+
+            {% block content %}
+
+            <!-- Body Container -->
+            <div id="page-content" class="mb-0">
+
+
+
+
+                <style>
+                    .image-title {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    color: #000;
+                }
+                
+                .image-title img {
+                    margin-bottom: 5px; /* Adjust as needed */
+                }
+                
+                .hover-shadow {
+                           border: 1px solid #e8e6eb;
+                            box-shadow: 0 4px 1px rgba(0, 0, 0, 0.1);
+                            transition: box-shadow 0.3s;
+                        }
+                
+                        .hover-shadow:hover {
+                            box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+                        }
+                
+                        .custom-section {
+                            display: flex;
+                            flex-wrap: wrap;
+                            background-color: #fff4f14f;
+                            transition: background-color 0.3s;
+                            vertical-align: middle;
+                            border-radius: 5px;
+                                    
+                        }
+                
+                        .custom-section:hover {
+                            background-color: rgba(251, 214, 204, 0.31);
+                                    
+                        }
+                
+                        .custom-column {
+                            flex: 1;
+                            padding: 0px;
+                            text-align: center;
+                
+                        }
+                
+                        
+                </style>
+                
+                
+                                
+                
+                
+                
+                           <!--Page Header-->
+                            <div class="page-header text-center">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex justify-content-between align-items-center">
+                                            <div class="page-title"><h1>Categories</h1></div>
+                                            <!--Breadcrumbs-->
+                                            <div class="breadcrumbs"><a href="#" title="Back to the home page">Home</a><span class="title"><i class="icon anm anm-angle-right-l"></i>Categories</span></div>
+                                            <!--End Breadcrumbs-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Page Header-->
+                            
+                            
+                
+                            
+                
+                
+                           <!--Main Content-->
+                            <div class="container">  
+
+                                <p>{{ categories.count }} Categories Found</p>
+
+                                
+
+                                <div class="collection-style1 row col-row row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-2" style="padding-bottom: 80px;">
+
+                                    {% for category in categories %}
+                                    
+                                    <div class="category-item col-item zoomscal-hov">
+                                        <a href="#" class="category-link clr-none">
+                                            <div class="zoom-scal zoom-scal-nopb"><img class="blur-up lazyload w-100" data-src="{{ category.image.url }}" src="{{ category.image.url }}" alt="collection" title="" width="365" height="365" /></div>
+                                            <div class="details mt-3 d-flex justify-content-between align-items-center">
+                                                <h4 class="category-title mb-0">{{ category.title }}</h4>
+                                                <p class="counts">{{ category.category.count }} Item{{ category.category.count|pluralize }}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    {% endfor %}
+
+                                </div>
+                                
+                                
+
+
+                                
+                            </div>
+                            <!--End Main Content-->
+
+
+                            </div>
+                            <!-- End Body Container -->
+
+
+                            {% endblock content %}
+                
+                            
